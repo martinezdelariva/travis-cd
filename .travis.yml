@@ -4,5 +4,5 @@ php:
 
 script:
   - if [[ $TRAVIS_PULL_REQUEST -ne 'false' ]]; then printf "Build\n" ; printf "Unit tests\n"; printf "Create the artifact\n"; printf "Deploy staging\n"; else printf "Not in PR\n" ; fi
-  - if [[ $TRAVIS_PULL_REQUEST -eq 'true' && $TRAVIS_BRANCH -eq 'master']]; then printf "Deploy prod\n" ; fi
+  - if [[ $TRAVIS_PULL_REQUEST -eq 'true' ]] && [[ $TRAVIS_BRANCH -eq 'master']]; then printf "Deploy prod\n" ; fi
 
