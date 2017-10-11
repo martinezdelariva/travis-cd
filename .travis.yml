@@ -4,8 +4,7 @@ php:
 
 env:
   global:
-    - ARTIFACT_NAME=$TRAVIS_COMMIT | cut -c1-6
-
+    - ARTIFACT_NAME= echo $TRAVIS_COMMIT_RANGE | cut -c1-6
 
 script:
   - printf "travis_commit = $TRAVIS_COMMIT"
