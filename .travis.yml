@@ -3,8 +3,5 @@ php:
 - '7.1'
 
 script:
-  - printf "Build\n"
-  - printf "Unit tests\n"
-  - printf "Create the artifact\n"
-  - printf "Deploy staging\n"
-  - printf "Deploy production\n"
+  - if [[ $TRAVIS_PULL_REQUEST -ne 'false' ]]; then printf "Build\n" ; printf "Unit tests\n"; printf "Create the artifact\n"; printf "Deploy staging\n"; else printf "Not in PR\n" ; fi
+
