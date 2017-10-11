@@ -20,4 +20,4 @@
 ## On merge
 - Deploy production
 
-## With merge
+## With merge.
