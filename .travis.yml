@@ -3,6 +3,8 @@ php:
 - '7.1'
 
 script:
+  - printf $TRAVIS_PULL_REQUEST
+  - printf $TRAVIS_BRANCH
   - if [[ $TRAVIS_PULL_REQUEST -ne 'false' ]]; then printf "Build\n" ; printf "Unit tests\n"; printf "Create the artifact\n"; printf "Deploy staging\n"; else printf "Not in PR\n" ; fi
-  - if [[ $TRAVIS_PULL_REQUEST -eq 'false' && $TRAVIS_BRANCH -eq "master" ]]; then printf "Deploy prod\n" ; fi
+  - if [[ $TRAVIS_PULL_REQUEST == 'false' && $TRAVIS_BRANCH = "master" ]]; then printf "Deploy prod\n" ; fi
 
