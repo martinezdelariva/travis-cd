@@ -1,4 +1,4 @@
-## Stages
+# Stages
 
 - Build
 - Unit tests
