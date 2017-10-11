@@ -3,7 +3,7 @@ php:
 - '7.1'
 
 script:
-  - ARTIFACT_NAME=echo $TRAVIS_COMMIT_RANGE | cut -c1-6
+  - ARTIFACT_NAME=${TRAVIS_COMMIT_RANGE:0:6}
   - printf "travis_commit = $TRAVIS_COMMIT"
   - printf "travis_pr_sha $TRAVIS_PULL_REQUEST_SHA"
   - printf "travis_commit_range $TRAVIS_COMMIT_RANGE"
