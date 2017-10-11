@@ -2,10 +2,14 @@ language: php
 php:
 - '7.1'
 
+env:
+  global:
+    - ARTIFACT_NAME=$TRAVIS_COMMIT | cut -c1-6
+
+
 script:
   - printf "travis_commit = $TRAVIS_COMMIT"
   - printf "travis_pr_sha $TRAVIS_PULL_REQUEST_SHA"
   - printf "travis_commit_range $TRAVIS_COMMIT_RANGE"
-  - if [[ $TRAVIS_PULL_REQUEST -ne 'false' ]]; then printf "Build\n" ; printf "Unit tests\n"; printf "Create the artifact for commit $TRAVIS_COMMIT\n"; printf "Deploy staging $TRAVIS_COMMIT\n"; else printf "Not in PR\n" ; fi
-  - if [[ $TRAVIS_PULL_REQUEST == 'false' && $TRAVIS_BRANCH = "master" ]]; then printf "Deploy prod $TRAVIS_COMMIT\n" ; fi
-
+  - if [[ $TRAVIS_PULL_REQUEST -ne 'false' ]]; then printf "Build\n" ; printf "Unit tests\n"; printf "Create the artifact for commit $ARTIFACT_NAME\n"; printf "Deploy staging $ARTIFACT_NAME\n"; else printf "Not in PR\n" ; fi
+  - if [[ $TRAVIS_PULL_REQUEST == 'false' && $TRAVIS_BRANCH = "master" ]]; then printf "Deploy prod $ARTIFACT_NAME | cut -c1-6\n" ; fi
