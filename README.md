@@ -6,18 +6,18 @@
 - Deploy staging
 - Deploy production
 
-## On branch
+### On branch
 - Build
 - Unit tests
 
-## On Pull Request
+### On Pull Request
 
 - Build
 - Unit tests
 - Create the artifact
 - Deploy staging
 
-## On merge
+### On merge
 - Deploy production
 
 ## On merging
