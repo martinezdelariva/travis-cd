@@ -19,5 +19,3 @@
 
 ## On merge
 - Deploy production
-
-## On merging
