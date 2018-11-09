@@ -5,4 +5,4 @@ php:
 script:
   - ARTIFACT_NAME=${TRAVIS_COMMIT_RANGE:0:6}
   - if [[ $TRAVIS_PULL_REQUEST -ne 'false' ]]; then printf "Build\n" ; printf "Unit tests\n"; printf "Create the artifact for commit $ARTIFACT_NAME\n"; printf "Deploy staging $ARTIFACT_NAME\n"; else printf "Not in PR\n" ; fi
-  - if [[ $TRAVIS_PULL_REQUEST == 'false' && $TRAVIS_BRANCH = "master" ]]; then printf "Deploy prod $ARTIFACT_NAME" ; fi
+  - if [[ $TRAVIS_PULL_REQUEST == 'false' && $TRAVIS_BRANCH == 'master' ]]; then printf "Deploy prod $ARTIFACT_NAME" ; fi
